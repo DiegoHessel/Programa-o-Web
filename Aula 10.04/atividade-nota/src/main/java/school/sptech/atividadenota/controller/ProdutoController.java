@@ -20,7 +20,7 @@ public class ProdutoController {
     @PostMapping
     public ResponseEntity<ProdutoListagemDto> adicionarProduto(@RequestBody @Valid ProdutoCriacaoDto produto) {
         if (produto == null) {
-            return ResponseEntity.status(40).build();
+            return ResponseEntity.status(400).build();
         }
         Produto produtoSalvo = ProdutoMapper.toEntity(produto);
         produtoRepository.save(produtoSalvo);
